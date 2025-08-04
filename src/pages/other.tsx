@@ -1,49 +1,89 @@
 // pages/other.tsx
+import React from "react";
+
 export default function OtherPage() {
   return (
-    <div className="relative h-screen w-full text-black top-10">
+    <div className="relative min-h-screen w-full text-black overflow-hidden bg-white">
       {/* Background Video */}
-      <video
-        className="absolute left-0 w-full h-full object-cover"
-        autoPlay
-        muted
-        loop
-        playsInline
-      >
-        <source src="/video.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      <div className="absolute inset-0 flex justify-center items-center p-4">
+        <div className="mt-23 w-full max-w-[620px] sm:max-w-[480px] md:max-w-[600px]
+         lg:max-w-[1600px] rounded-3xl overflow-hidden">
+          <video
+            className="w-full h-full rounded-3xl"
+            autoPlay
+            muted
+            loop
+            playsInline
+          >
+            <source src="/video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
 
-      {/* Content on top of video */}
-   l
-      <div className="absolute flex flex-row z-10 px-4 md:px-12 mt-[-90px]   ">
-        <p className="text-sm md:text-base font-medium mb-2 bg-white mt-[-20px] h-80 relative ml-20 rounded-3xl ">
+      {/* Foreground Content */}
+      <div className="relative z-10 flex flex-col min-h-screen px-4 ml-4 sm:ml-6
+       md:ml-8 lg:ml-12 xl:ml-16 items-start">
+        {/* Intro Text */}
+        <p className="text-sm sm:text-base font-medium rounded-3xl max-w-md shadow">
           👋 Hiya, we’re Shape
         </p>
-        <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-4 size-4xl ">
-          <p className="absolute bg-white inline-block px-2 rounded-b-3xl w-150 ml-[-100px] size-4xl ">
+
+        {/* Headings */}
+        <div className="">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
+           bg-white px-4 py-2 rounded-b-3xl shadow inline-block">
             A web design and
           </p>
           <br />
-          <p className="absolute bg-white inline-block px-2 rounded-b-3xl w-140 ml-[-100px] ">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
+           bg-white px-4 py-2 rounded-b-3xl shadow inline-block">
             branding agency
           </p>
           <br />
-          <p className="absolute bg-white inline-block px-2  w-130 ml-[-105px] rounded-b-3xl">
+          <p className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold
+           bg-white px-4 py-2 rounded-b-3xl shadow inline-block">
             in Manchester
           </p>
-        </h1>
+          <br />
+        </div>
 
-        <div className="absolute flex flex-wrap gap-4 bg-white w-90 mt-55 flex-row ml-30 p-4 rounded-b-3xl"> 
-          <button className="bg-black text-white px-6 py-3 rounded-full text-sm">
+        {/* Buttons */}
+        <div className="bg-white w-80 flex flex-wrap gap-x-4 rounded-b-lg">
+          <button className="flex  bg-black text-white px-6 py-3 text-sm font-medium
+           rounded-full hover:bg-gray-800 transition">
             View our work
           </button>
-          <button className="text-black px-6 py-3 rounded-full border border-black text-sm">
+          <button className="flex items-center gap-2 text-black px-6 py-3 text-sm font-medium rounded-full border border-black hover:bg-black hover:text-white transition">
             Meet the team ↗
           </button>
         </div>
       </div>
+
+      {/* Hear from Andy Button */}
+      <div
+        className="absolute bottom-6 mr-20 sm:right-6 z-50 group overflow-hidden bg-white rounded-full
+         shadow-lg flex items-center gap-4 pl-2 pr-4 py-2 cursor-pointer transition-all
+          duration-500 hover:shadow-xl max-w-[300px] sm:max-w-[360px]"
+      >
+        {/* Profile Image */}
+        <div className="w-10 h-10 rounded-full overflow-hidden
+         transform transition-transform duration-500 group-hover:translate-x-30">
+          <img
+            src="/logo.webp"
+            alt="Andy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Text Content */}
+        <div className="transform transition-transform duration-500 group-hover:translate-x-[-50%]">
+          <p className="text-sm font-semibold text-black leading-tight">
+            Hear from Andy
+          </p>
+          <p className="text-xs text-gray-500">Co-Founder of Shape</p>
+        </div>
       </div>
- 
+    </div>
   );
 }
